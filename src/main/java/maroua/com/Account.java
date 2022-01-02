@@ -77,9 +77,31 @@ public class Account {
         System.out.println("checking Account Balance:" + moneyFormat.format(checkingBalance));
         System.out.println("Amount you want to Deposit to checking Account:");
         double amount = input.nextDouble();
-        if (checkingBalance+amount>=0){
+        if (amount>=0){
             calcCheckingDeposit(amount);
             System.out.println("New checking Account Balance :"+moneyFormat.format(checkingBalance));
+        }else{
+            System.out.println("Balance cannot be negative."+"/n");
+        }
+    }
+    public void getSavingWithdrawInput() {
+        System.out.println("Saving Account Balance:" + moneyFormat.format(savingBalance));
+        System.out.println("Amount you want to withdraw from Saving Account:");
+        double amount = input.nextDouble();
+        if ((savingBalance - amount) >= 0) {
+            calcSavingWithdraw(amount);
+            System.out.println("New saving Account Balance :"+moneyFormat.format(savingBalance));
+        }else{
+            System.out.println("Balance cannot be negative."+"/n");
+        }
+    }
+    public void getSavingDepositInput(){
+        System.out.println("saving Account Balance:" + moneyFormat.format(savingBalance));
+        System.out.println("Amount you want to Deposit to saving Account:");
+        double amount = input.nextDouble();
+        if (amount>=0){
+            calcSavingDeposit(amount);
+            System.out.println("New saving Account Balance :"+moneyFormat.format(savingBalance));
         }else{
             System.out.println("Balance cannot be negative."+"/n");
         }
