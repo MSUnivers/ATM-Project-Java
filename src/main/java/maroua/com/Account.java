@@ -31,6 +31,7 @@ public class Account {
 
         return customerNumber;
     }
+
     public double getCheckingBalance() {
         return checkingBalance;
     }
@@ -39,21 +40,49 @@ public class Account {
     public double getSavingBalance() {
         return savingBalance;
     }
-    public double calcCheckingWithdraw(double amount){
-        checkingBalance-=amount;
+
+    public double calcCheckingWithdraw(double amount) {
+        checkingBalance -= amount;
         return checkingBalance;
     }
-    public double calcSavingWithdraw(double amount){
-        savingBalance-=amount;
+
+    public double calcSavingWithdraw(double amount) {
+        savingBalance -= amount;
         return savingBalance;
     }
-    public double calcCheckingDeposit (double amount){
-        checkingBalance+=amount;
+
+    public double calcCheckingDeposit(double amount) {
+        checkingBalance += amount;
         return checkingBalance;
 
     }
-    public double calcSavingDeposit (double amount){
-        savingBalance+=amount;
+
+    public double calcSavingDeposit(double amount) {
+        savingBalance += amount;
         return savingBalance;
     }
+
+    public void getCheckingWithdrawInput() {
+        System.out.println("checking Account Balance:" + moneyFormat.format(checkingBalance));
+        System.out.println("Amount you want to withdraw from checking Account:");
+        double amount = input.nextDouble();
+        if ((checkingBalance - amount) >= 0) {
+            calcCheckingWithdraw(amount);
+            System.out.println("New checking Account Balance :"+moneyFormat.format(checkingBalance));
+        }else{
+            System.out.println("Balance cannot be negative."+"/n");
+        }
+    }
+    public void getCheckingDepositInput(){
+        System.out.println("checking Account Balance:" + moneyFormat.format(checkingBalance));
+        System.out.println("Amount you want to Deposit to checking Account:");
+        double amount = input.nextDouble();
+        if (checkingBalance+amount>=0){
+            calcCheckingDeposit(amount);
+            System.out.println("New checking Account Balance :"+moneyFormat.format(checkingBalance));
+        }else{
+            System.out.println("Balance cannot be negative."+"/n");
+        }
+    }
 }
+
